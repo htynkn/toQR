@@ -1,13 +1,13 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -18,15 +18,23 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('com.turn:ttorrent-core:1.5')
-	compile('com.google.guava:guava:21.0')
-	runtime('org.springframework.boot:spring-boot-devtools')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('com.turn:ttorrent-core:1.5')
+    compile('com.google.guava:guava:21.0')
+    compile('org.webjars:jquery:3.2.0')
+    compile('org.webjars:bootstrap:3.3.7-1')
+    compile('com.github.kenglxn.QRGen:javase:2.2.0')
+    runtime('org.springframework.boot:spring-boot-devtools')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+bootRun {
+    addResources = true
 }
